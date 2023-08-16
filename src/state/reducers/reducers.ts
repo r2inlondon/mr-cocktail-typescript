@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import cocktailReducer from "./cocktailReducer";
+import reducer from "./cocktailReducer";
 
 const rootReducer = combineReducers({
-  cocktailReducer,
+  cocktailReducer: reducer,
 });
 
 export default rootReducer;

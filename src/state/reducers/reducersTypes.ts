@@ -18,4 +18,8 @@ type DeleteAction = {
   payload?: cocktailType;
 };
 
+export type RootState = {
+  cocktailReducer: cocktailType[];
+};
+
 export type Action = NewAction | DeleteAction;

@@ -1,9 +1,25 @@
-const Home = () => {
+import { connect } from "react-redux";
+import { cocktailType, RootState } from "../state/reducers/reducersTypes";
+
+type HomeProps = {
+  cocktails: cocktailType[];
+};
+
+const Home = ({ cocktails }: HomeProps) => {
   return (
     <>
       <h1>Home Page</h1>
+      <ul>
+        {cocktails.map((cocktail, index) => (
+          <li key={index}>{cocktail.name}</li>
+        ))}
+      </ul>
     </>
   );
 };
 
-export default Home;
+const mapStateToProps = (state: RootState) => ({
+  cocktails: state.cocktailReducer,
+});
+
+export default connect(mapStateToProps)(Home);

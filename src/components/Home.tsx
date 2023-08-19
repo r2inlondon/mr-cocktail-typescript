@@ -1,7 +1,7 @@
-import { addCocktail } from "../../state/actions-creators/actions";
+import { addCocktail } from "../state/actions-creators/actions";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { cocktailType } from "../../state/reducers/reducersTypes";
+import { cocktailType } from "../state/reducers/reducersTypes";
 
 type ConnectProps = {
   dispatch: Dispatch;

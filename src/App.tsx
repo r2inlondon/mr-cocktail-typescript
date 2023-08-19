@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import NewCocktailForm from "./components/new-cocktail/NewCocktailForm";
-import NavBar from "./components/NavBar/NavBar";
+import Home from "./components/Home";
+import NewCocktailPage from "./components/NewCocktailPage";
+import NavBar from "./components/NavBar";
 import "./App.css";
 import { Fragment } from "react";
 
@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/new" element={<NewCocktailForm />} />
+        <Route path="/new" element={<NewCocktailPage />} />
       </Routes>
     </Fragment>
   );

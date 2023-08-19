@@ -1,6 +1,6 @@
 export type cocktailType = {
   name: string;
-  image: string;
+  image?: string;
 };
 
 export enum ActionType {

@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
-import NewCocktailPage from "./components/NewCocktailPage";
+import NewCocktailPage from "./components/CocktailPage";
 import NavBar from "./components/NavBar";
 import "./App.css";
 import { Fragment } from "react";

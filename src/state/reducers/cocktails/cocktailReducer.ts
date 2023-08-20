@@ -1,10 +1,10 @@
 import {
   CocktailAction,
-  cocktailType,
+  CocktailType,
   CocktailActionType,
 } from "./cocktailTypes";
 
-const initialState: cocktailType[] = [];
+const initialState: CocktailType[] = [];
 
 const cocktailReducer = (state = initialState, action: CocktailAction) => {
   switch (action.type) {

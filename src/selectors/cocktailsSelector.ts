@@ -1,4 +1,4 @@
-import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 
 type propsType = {
   text: string;
@@ -6,7 +6,7 @@ type propsType = {
 };
 
 const cocktailsSelector = (
-  cocktails: cocktailType[],
+  cocktails: CocktailType[],
   { text, sortBy }: propsType
 ) => {
   return cocktails

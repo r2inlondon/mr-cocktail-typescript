@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
-import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { RootState } from "../state/reducers/stateTypes";
 import FilterCocktails from "./FilterCocktails";
 import cocktailsSelector from "../selectors/cocktailsSelector";
 import ListCocktails from "./ListCocktails";
 
 type HomeProps = {
-  cocktails: cocktailType[];
+  cocktails: CocktailType[];
 };
 
 const Home = ({ cocktails }: HomeProps) => {

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
 import CocktailForm from "./CocktailForm";
-import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { addCocktail } from "../state/actions-creators/cocktailActions";
 
 type ConnectProps = {
@@ -12,7 +12,7 @@ type ConnectProps = {
 const NewCocktailPage = ({ dispatch }: ConnectProps) => {
   const navigate = useNavigate();
 
-  const handleAddCocktail = (newCocktail: cocktailType) => {
+  const handleAddCocktail = (newCocktail: CocktailType) => {
     dispatch(addCocktail(newCocktail));
     navigate("/");
   };

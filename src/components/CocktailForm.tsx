@@ -1,9 +1,9 @@
 import { useState, Fragment } from "react";
-import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
-  handleAddCocktail: (cocktail: cocktailType) => void;
+  handleAddCocktail: (cocktail: CocktailType) => void;
 };
 
 const CocktailForm = ({ handleAddCocktail }: PropsType) => {

@@ -1,18 +1,18 @@
 import { Dispatch } from "redux";
 import {
   CocktailAction,
-  cocktailType,
+  CocktailType,
   CocktailActionType,
 } from "../reducers/cocktails/cocktailTypes";
 
-export const addCocktail = (cocktail: cocktailType): CocktailAction => {
+export const addCocktail = (cocktail: CocktailType): CocktailAction => {
   return {
     type: CocktailActionType.NEW,
     payload: cocktail,
   };
 };
 
-export const deleteCocktail = (cocktail: cocktailType) => {
+export const deleteCocktail = (cocktail: CocktailType) => {
   return (dispatch: Dispatch<CocktailAction>) => {
     dispatch({
       type: CocktailActionType.DELETE,

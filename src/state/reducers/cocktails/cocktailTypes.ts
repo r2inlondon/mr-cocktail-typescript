@@ -1,4 +1,4 @@
-export type cocktailType = {
+export type CocktailType = {
   id: string;
   name: string;
   image?: string;
@@ -11,12 +11,12 @@ export enum CocktailActionType {
 
 type NewCocktailAction = {
   type: CocktailActionType.NEW;
-  payload?: cocktailType;
+  payload?: CocktailType;
 };
 
 type DeleteCocktailAction = {
   type: CocktailActionType.DELETE;
-  payload?: cocktailType;
+  payload?: CocktailType;
 };
 
 export type CocktailAction = NewCocktailAction | DeleteCocktailAction;

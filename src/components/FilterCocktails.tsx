@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Fragment, useState, useEffect } from "react";
+import { FilterRootState } from "../state/reducers/stateTypes";
+import { FilterTypes } from "../state/reducers/filters/filterTypes";
 import {
   sortByName,
   sortByNewest,
@@ -8,10 +10,11 @@ import {
 
 type ConnectProps = {
   dispatch: Dispatch;
+  filterState: FilterTypes;
 };
 
-const FilterCocktails = ({ dispatch }: ConnectProps) => {
-  const [filter, setFilter] = useState("newest");
+const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
+  const [filter, setFilter] = useState(filterState.sortBy);
 
   useEffect(() => {
     if (filter === "name") {
@@ -35,4 +38,8 @@ const FilterCocktails = ({ dispatch }: ConnectProps) => {
   );
 };
 
-export default connect()(FilterCocktails);
+const mapStateToProps = (state: FilterRootState) => ({
+  filterState: state.filterReducer,
+});
+
+export default connect(mapStateToProps)(FilterCocktails);

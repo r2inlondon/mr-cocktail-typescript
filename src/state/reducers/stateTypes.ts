@@ -5,3 +5,7 @@ export type RootState = {
   cocktailReducer: cocktailType[];
   filterReducer: FilterTypes;
 };
+
+export type FilterRootState = {
+  filterReducer: FilterTypes;
+};

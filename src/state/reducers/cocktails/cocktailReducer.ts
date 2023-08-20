@@ -11,7 +11,7 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
     case CocktailActionType.NEW:
       return [...state, action.payload];
     case CocktailActionType.DELETE:
-      return state.filter((item) => item.name !== action?.payload?.name);
+      return state.filter((item) => item.name !== action?.payload?.id);
     default:
       return state;
   }

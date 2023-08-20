@@ -20,7 +20,7 @@ const cocktailsSelector = (
       if (sortBy === "name") {
         return a.name < b.name ? -1 : 1;
       } else {
-        return a.name < b.name ? 1 : -1;
+        return a.id < b.id ? 1 : -1;
       }
     });
 };

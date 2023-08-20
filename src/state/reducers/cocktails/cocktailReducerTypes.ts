@@ -1,4 +1,5 @@
 export type cocktailType = {
+  id: string;
   name: string;
   image?: string;
 };

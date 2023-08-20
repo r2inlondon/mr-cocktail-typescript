@@ -14,8 +14,8 @@ const Home = ({ cocktails }: HomeProps) => {
       <h1>Home Page</h1>
       <FilterCocktails />
       <ul>
-        {cocktails.map((cocktail, index) => (
-          <li key={index}>{cocktail.name}</li>
+        {cocktails.map((cocktail) => (
+          <li key={cocktail.id}>{cocktail.name}</li>
         ))}
       </ul>
     </>

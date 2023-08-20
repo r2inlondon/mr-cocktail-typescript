@@ -1,5 +1,6 @@
 import { useState, Fragment } from "react";
-import { cocktailType } from "../state/reducers/reducersTypes";
+import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
+import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   handleAddCocktail: (cocktail: cocktailType) => void;
@@ -11,7 +12,12 @@ const CocktailForm = ({ handleAddCocktail }: PropsType) => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    handleAddCocktail({ name: cocktailName });
+    const v1options = {
+      msecs: new Date().getTime(),
+    };
+
+    const id: string = uuidv1(v1options);
+    handleAddCocktail({ name: cocktailName, id });
   };
 
   return (

@@ -6,6 +6,7 @@ import { FilterTypes } from "../state/reducers/filters/filterTypes";
 import {
   sortByName,
   sortByNewest,
+  setTextFilter,
 } from "../state/actions-creators/filterActions";
 
 type ConnectProps = {
@@ -14,22 +15,33 @@ type ConnectProps = {
 };
 
 const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
-  const [filter, setFilter] = useState(filterState.sortBy);
+  const [sortBy, setSortby] = useState(filterState.sortBy);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    if (filter === "name") {
+    if (sortBy === "name") {
       dispatch(sortByName());
     } else {
       dispatch(sortByNewest());
     }
-  }, [filter, dispatch]);
+  }, [sortBy, dispatch]);
+
+  useEffect(() => {
+    dispatch(setTextFilter(search));
+  }, [search, dispatch]);
 
   return (
     <Fragment>
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        type="text"
+        placeholder="Search cocktails"
+      />
       <select
         name="filter-coctkails"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        value={sortBy}
+        onChange={(e) => setSortby(e.target.value)}
       >
         <option value="newest">Newest</option>
         <option value="name">By Name</option>

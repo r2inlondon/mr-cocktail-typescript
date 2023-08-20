@@ -11,7 +11,7 @@ export enum FilterActionType {
 
 type SetTextAction = {
   type: FilterActionType.SET_TEXT;
-  payload: string;
+  text: string;
 };
 
 type SetSortByAction = {

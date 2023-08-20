@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
+import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { RootState } from "../state/reducers/stateTypes";
 import FilterCocktails from "./FilterCocktails";
 import cocktailsSelector from "../selectors/cocktailsSelector";

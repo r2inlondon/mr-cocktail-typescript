@@ -1,4 +1,4 @@
-import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
+import { cocktailType } from "../state/reducers/cocktails/cocktailTypes";
 
 type propsType = {
   text: string;

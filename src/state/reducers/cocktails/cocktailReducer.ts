@@ -2,7 +2,7 @@ import {
   CocktailAction,
   cocktailType,
   CocktailActionType,
-} from "./cocktailReducerTypes";
+} from "./cocktailTypes";
 
 const initialState: cocktailType[] = [];
 

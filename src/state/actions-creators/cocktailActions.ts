@@ -3,7 +3,7 @@ import {
   CocktailAction,
   cocktailType,
   CocktailActionType,
-} from "../reducers/cocktails/cocktailReducerTypes";
+} from "../reducers/cocktails/cocktailTypes";
 
 export const addCocktail = (cocktail: cocktailType): CocktailAction => {
   return {

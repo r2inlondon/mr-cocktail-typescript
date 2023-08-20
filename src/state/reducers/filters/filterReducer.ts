@@ -13,7 +13,7 @@ const filtersReducer = (
     case FilterActionType.SET_TEXT:
       return {
         ...state,
-        text: action.payload,
+        text: action.text,
       };
     case FilterActionType.SORT_BY_NAME:
       return {

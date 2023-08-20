@@ -1,4 +1,4 @@
-import { cocktailType } from "./cocktails/cocktailReducerTypes";
+import { cocktailType } from "./cocktails/cocktailTypes";
 import { FilterTypes } from "./filters/filterTypes";
 
 export type RootState = {

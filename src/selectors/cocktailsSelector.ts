@@ -3,11 +3,13 @@ import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
 type propsType = {
   text: string;
   sortBy: string;
-  cocktails: cocktailType[];
 };
 
-const cocktailsSelector = (cocktails, { text, sortBy }: propsType) => {
-  cocktails
+const cocktailsSelector = (
+  cocktails: cocktailType[],
+  { text, sortBy }: propsType
+) => {
+  return cocktails
     .filter((cocktail) => {
       const textMatch = cocktail.name
         .toLowerCase()

@@ -3,6 +3,10 @@ export const setTextFilter = (text = "") => ({
   text,
 });
 
-export const sortByAmount = () => ({
+export const sortByName = () => ({
   type: "SORT_BY_NAME",
+});
+
+export const sortByNewest = () => ({
+  type: "SORT_BY_NEW",
 });

@@ -1,6 +1,6 @@
-import { FilterType, FilterAction, FilterActionType } from "./filterTypes";
+import { FilterTypes, FilterAction, FilterActionType } from "./filterTypes";
 
-const filtersReducerDefaultState: FilterType = {
+const filtersReducerDefaultState: FilterTypes = {
   text: "",
   sortBy: "newest",
 };
@@ -18,7 +18,7 @@ const filtersReducer = (
     case FilterActionType.SORT_BY_NAME:
       return {
         ...state,
-        sortBy: "newest",
+        sortBy: "name",
       };
     case FilterActionType.SORT_BY_NEW:
       return {

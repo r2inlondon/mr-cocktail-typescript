@@ -1,4 +1,4 @@
-export type FilterType = {
+export type FilterTypes = {
   text: string;
   sortBy: string;
 };

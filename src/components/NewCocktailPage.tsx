@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
-import CocktailForm from "./NewCocktailForm";
+import CocktailForm from "./CocktailForm";
 import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
 import { addCocktail } from "../state/actions-creators/cocktailActions";
 

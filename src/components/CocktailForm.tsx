@@ -18,6 +18,7 @@ const CocktailForm = ({ handleAddCocktail }: PropsType) => {
     <Fragment>
       <form onSubmit={handleSubmit}>
         <input
+          autoFocus
           type="text"
           placeholder="Cocktail name"
           onChange={(e) => setCocktailName(e.target.value)}

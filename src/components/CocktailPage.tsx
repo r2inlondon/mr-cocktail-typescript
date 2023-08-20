@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
 import CocktailForm from "./NewCocktailForm";
-import { cocktailType } from "../state/reducers/reducersTypes";
-import { addCocktail } from "../state/actions-creators/actions";
+import { cocktailType } from "../state/reducers/cocktails/cocktailReducerTypes";
+import { addCocktail } from "../state/actions-creators/cocktailActions";
 
 type ConnectProps = {
   dispatch: Dispatch;

@@ -3,18 +3,18 @@ export type cocktailType = {
   image?: string;
 };
 
-export enum ActionType {
+export enum CocktailActionType {
   NEW = "NEW",
   DELETE = "DELETE",
 }
 
-type NewAction = {
-  type: ActionType.NEW;
+type NewCocktailAction = {
+  type: CocktailActionType.NEW;
   payload?: cocktailType;
 };
 
-type DeleteAction = {
-  type: ActionType.DELETE;
+type DeleteCocktailAction = {
+  type: CocktailActionType.DELETE;
   payload?: cocktailType;
 };
 
@@ -22,4 +22,4 @@ export type RootState = {
   cocktailReducer: cocktailType[];
 };
 
-export type Action = NewAction | DeleteAction;
+export type CocktailAction = NewCocktailAction | DeleteCocktailAction;

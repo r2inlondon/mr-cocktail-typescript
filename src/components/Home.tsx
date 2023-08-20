@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { cocktailType, RootState } from "../state/reducers/reducersTypes";
+import {
+  cocktailType,
+  RootState,
+} from "../state/reducers/cocktails/cocktailReducerTypes";
 
 type HomeProps = {
   cocktails: cocktailType[];

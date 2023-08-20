@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import reducer from "./cocktailReducer";
+import cocktailReducer from "./cocktails/cocktailReducer";
+import filterReducer from "./filters/filterReducer";
 
 const rootReducer = combineReducers({
-  cocktailReducer: reducer,
+  cocktailReducer,
+  filterReducer,
 });
 
 export default rootReducer;

@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 import { cocktailRootState } from "../state/reducers/stateTypes";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import CocktailForm from "./CocktailForm";
+import { editCocktail } from "../state/actions-creators/cocktailActions";
 
 type PropsType = {
   cocktails: CocktailType[];
+  dispatch: Dispatch;
 };
 
-const ViewCocktail = ({ cocktails }: PropsType) => {
+const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     id: "",
     name: "",
   });
+
+  const handleAddCocktail = ({ id, name }: CocktailType) => {
+    dispatch(editCocktail({ id, updates: name }));
+    navigate("/");
+  };
 
   useEffect(() => {
     const found = cocktails.find((item) => item.id === id);
@@ -22,9 +32,10 @@ const ViewCocktail = ({ cocktails }: PropsType) => {
   }, [cocktails, id]);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>{theCocktail.name}</h2>
-    </div>
+    <CocktailForm
+      handleAddCocktail={handleAddCocktail}
+      cocktail={theCocktail}
+    />
   );
 };
 
@@ -32,4 +43,4 @@ const mapStateToProps = (state: cocktailRootState) => ({
   cocktails: state.cocktailReducer,
 });
 
-export default connect(mapStateToProps)(ViewCocktail);
+export default connect(mapStateToProps)(EditCocktailPage);

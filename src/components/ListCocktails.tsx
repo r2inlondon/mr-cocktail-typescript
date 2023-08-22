@@ -10,7 +10,9 @@ const ListCocktails = ({ cocktails }: PropsType) => {
     <ul>
       {cocktails.map((cocktail) => (
         <li key={cocktail.id}>
-          <Link to={`/${cocktail.id}`}>{cocktail.name}</Link>
+          <h3>
+            <Link to={`/${cocktail.id}`}>{cocktail.name}</Link>
+          </h3>
         </li>
       ))}
     </ul>

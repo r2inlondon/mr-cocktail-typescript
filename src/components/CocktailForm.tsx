@@ -1,13 +1,18 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   handleAddCocktail: (cocktail: CocktailType) => void;
+  cocktail?: CocktailType;
 };
 
-const CocktailForm = ({ handleAddCocktail }: PropsType) => {
-  const [cocktailName, setCocktailName] = useState<string>("");
+const CocktailForm = ({ handleAddCocktail, cocktail }: PropsType) => {
+  const [newCocktailName, setNewCocktailName] = useState<string>("");
+
+  useEffect(() => {
+    if (cocktail) setNewCocktailName(cocktail.name);
+  }, [cocktail]);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -17,7 +22,12 @@ const CocktailForm = ({ handleAddCocktail }: PropsType) => {
     };
 
     const id: string = uuidv1(v1options);
-    handleAddCocktail({ name: cocktailName, id });
+
+    if (cocktail) {
+      handleAddCocktail({ id: cocktail.id, name: newCocktailName });
+    } else {
+      handleAddCocktail({ id, name: newCocktailName });
+    }
   };
 
   return (
@@ -27,9 +37,10 @@ const CocktailForm = ({ handleAddCocktail }: PropsType) => {
           autoFocus
           type="text"
           placeholder="Cocktail name"
-          onChange={(e) => setCocktailName(e.target.value)}
+          value={newCocktailName}
+          onChange={(e) => setNewCocktailName(e.target.value)}
         />
-        <button>Add cocktail</button>
+        <button>{cocktail ? "Update" : "Add"}</button>
       </form>
     </Fragment>
   );

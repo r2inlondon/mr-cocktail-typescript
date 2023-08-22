@@ -12,8 +12,8 @@ type ConnectProps = {
 const NewCocktailPage = ({ dispatch }: ConnectProps) => {
   const navigate = useNavigate();
 
-  const handleAddCocktail = (newCocktail: CocktailType) => {
-    dispatch(addCocktail(newCocktail));
+  const handleAddCocktail = (cocktail: CocktailType) => {
+    dispatch(addCocktail(cocktail));
     navigate("/");
   };
 

@@ -17,6 +17,14 @@ const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
+    const checkedName = newCocktailName.trim();
+    const reg = /^\s/;
+
+    if (reg.test(checkedName) || checkedName.length < 3) {
+      alert("Name is too short");
+      return;
+    }
+
     const v1options = {
       msecs: new Date().getTime(),
     };
@@ -24,9 +32,9 @@ const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
     const id: string = uuidv1(v1options);
 
     if (cocktailToEdit) {
-      handleAddCocktail({ id: cocktailToEdit.id, name: newCocktailName });
+      handleAddCocktail({ id: cocktailToEdit.id, name: checkedName });
     } else {
-      handleAddCocktail({ id, name: newCocktailName });
+      handleAddCocktail({ id, name: checkedName });
     }
   };
 

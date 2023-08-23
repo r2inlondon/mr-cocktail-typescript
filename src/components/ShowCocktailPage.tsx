@@ -22,6 +22,10 @@ const ShowCocktailPage = ({ cocktails }: PropsType) => {
     if (found) setTheCocktail(found);
   }, [cocktails, id]);
 
+  const handleDelete = () => {
+    console.log("delete");
+  };
+
   return (
     <div
       style={{
@@ -31,9 +35,19 @@ const ShowCocktailPage = ({ cocktails }: PropsType) => {
       }}
     >
       <h2>{theCocktail.name}</h2>
-      <Link to={`/edit/${theCocktail.id}`}>
-        <p>Edit</p>
-      </Link>
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "space-between",
+          width: "45%",
+        }}
+      >
+        <Link to={`/edit/${theCocktail.id}`}>
+          <p>Edit</p>
+        </Link>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
     </div>
   );
 };

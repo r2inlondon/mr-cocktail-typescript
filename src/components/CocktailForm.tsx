@@ -4,18 +4,26 @@ import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   handleAddCocktail: (cocktail: CocktailType) => void;
-  cocktail?: CocktailType;
+  cocktailToEdit?: CocktailType;
 };
 
-const CocktailForm = ({ handleAddCocktail, cocktail }: PropsType) => {
+const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
   const [newCocktailName, setNewCocktailName] = useState<string>("");
 
   useEffect(() => {
-    if (cocktail) setNewCocktailName(cocktail.name);
-  }, [cocktail]);
+    if (cocktailToEdit) setNewCocktailName(cocktailToEdit.name);
+  }, [cocktailToEdit]);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+
+    const checkedName = newCocktailName.trim();
+    const reg = /^\s/;
+
+    if (reg.test(checkedName) || checkedName.length < 3) {
+      alert("Name is too short");
+      return;
+    }
 
     const v1options = {
       msecs: new Date().getTime(),
@@ -23,10 +31,10 @@ const CocktailForm = ({ handleAddCocktail, cocktail }: PropsType) => {
 
     const id: string = uuidv1(v1options);
 
-    if (cocktail) {
-      handleAddCocktail({ id: cocktail.id, name: newCocktailName });
+    if (cocktailToEdit) {
+      handleAddCocktail({ id: cocktailToEdit.id, name: checkedName });
     } else {
-      handleAddCocktail({ id, name: newCocktailName });
+      handleAddCocktail({ id, name: checkedName });
     }
   };
 
@@ -40,7 +48,7 @@ const CocktailForm = ({ handleAddCocktail, cocktail }: PropsType) => {
           value={newCocktailName}
           onChange={(e) => setNewCocktailName(e.target.value)}
         />
-        <button>{cocktail ? "Update" : "Add"}</button>
+        <button>{cocktailToEdit ? "Update" : "Add"}</button>
       </form>
     </Fragment>
   );

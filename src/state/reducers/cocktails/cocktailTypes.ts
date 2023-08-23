@@ -12,7 +12,7 @@ export enum CocktailActionType {
 
 type NewCocktailAction = {
   type: CocktailActionType.NEW;
-  payload?: CocktailType;
+  payload: CocktailType;
 };
 
 type DeleteCocktailAction = {

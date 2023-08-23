@@ -15,7 +15,7 @@ type PropsType = {
 const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [theCocktail, setTheCocktail] = useState<CocktailType>({
+  const [cocktailToEdit, setCocktailToEdit] = useState<CocktailType>({
     id: "",
     name: "",
   });
@@ -28,13 +28,13 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   useEffect(() => {
     const found = cocktails.find((item) => item.id === id);
 
-    if (found) setTheCocktail(found);
+    if (found) setCocktailToEdit(found);
   }, [cocktails, id]);
 
   return (
     <CocktailForm
       handleAddCocktail={handleAddCocktail}
-      cocktail={theCocktail}
+      cocktailToEdit={cocktailToEdit}
     />
   );
 };

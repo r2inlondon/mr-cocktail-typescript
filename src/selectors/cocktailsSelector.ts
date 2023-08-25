@@ -11,14 +11,14 @@ const cocktailsSelector = (
 ) => {
   return cocktails
     .filter((cocktail) => {
-      const textMatch = cocktail.name
+      const textMatch = cocktail.description
         .toLowerCase()
         .includes(text.toLowerCase());
       return textMatch;
     })
     .sort((a, b) => {
       if (sortBy === "name") {
-        return a.name < b.name ? -1 : 1;
+        return a.description < b.description ? -1 : 1;
       } else {
         return a.id < b.id ? 1 : -1;
       }

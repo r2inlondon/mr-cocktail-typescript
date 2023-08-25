@@ -13,13 +13,26 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
     case CocktailActionType.EDIT:
       return state.map((item) => {
         if (item.id === action.id) {
-          return { ...item, name: action.updates };
+          return { ...item, description: action.updates };
         } else {
           return item;
         }
       });
     case CocktailActionType.DELETE:
       return state.filter((item) => item.id !== action.id);
+    case CocktailActionType.NEW_ING:
+      return state.map((item) => {
+        if (item.id === action.payload.cocktail_id) {
+          const updatedIngredients = item.ingredients
+            ? [...item.ingredients, action.payload]
+            : [action.payload];
+          return {
+            ...item,
+            ingredients: updatedIngredients,
+          };
+        }
+      });
+
     default:
       return state;
   }

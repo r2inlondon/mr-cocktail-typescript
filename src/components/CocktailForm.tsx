@@ -3,25 +3,30 @@ import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
-  handleAddCocktail: (cocktail: CocktailType) => void;
+  handleItem: (cocktail: CocktailType) => void;
+  itemDescription: string;
   cocktailToEdit?: CocktailType;
 };
 
-const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
-  const [newCocktailName, setNewCocktailName] = useState<string>("");
+const CocktailForm = ({
+  handleItem,
+  itemDescription,
+  cocktailToEdit,
+}: PropsType) => {
+  const [newItem, setNewItem] = useState<string>("");
 
   useEffect(() => {
-    if (cocktailToEdit) setNewCocktailName(cocktailToEdit.name);
+    if (cocktailToEdit) setNewItem(cocktailToEdit.description);
   }, [cocktailToEdit]);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    const checkedName = newCocktailName.trim();
+    const checkedDescription = newItem.trim();
     const reg = /^\s/;
 
-    if (reg.test(checkedName) || checkedName.length < 3) {
-      alert("Name is too short");
+    if (reg.test(checkedDescription) || checkedDescription.length < 3) {
+      alert(`${itemDescription} is too short`);
       return;
     }
 
@@ -32,9 +37,9 @@ const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
     const id: string = uuidv1(v1options);
 
     if (cocktailToEdit) {
-      handleAddCocktail({ id: cocktailToEdit.id, name: checkedName });
+      handleItem({ id: cocktailToEdit.id, description: checkedDescription });
     } else {
-      handleAddCocktail({ id, name: checkedName });
+      handleItem({ id, description: checkedDescription });
     }
   };
 
@@ -44,9 +49,9 @@ const CocktailForm = ({ handleAddCocktail, cocktailToEdit }: PropsType) => {
         <input
           autoFocus
           type="text"
-          placeholder="Cocktail name"
-          value={newCocktailName}
-          onChange={(e) => setNewCocktailName(e.target.value)}
+          placeholder={`Enter ${itemDescription}`}
+          value={newItem}
+          onChange={(e) => setNewItem(e.target.value)}
         />
         <button>{cocktailToEdit ? "Update" : "Add"}</button>
       </form>

@@ -2,6 +2,7 @@ import {
   CocktailType,
   CocktailActionType,
   EditCocktailAction,
+  IngredientType,
 } from "../reducers/cocktails/cocktailTypes";
 
 export const addCocktail = (cocktail: CocktailType) => {
@@ -23,5 +24,12 @@ export const deleteCocktail = (id: string) => {
   return {
     type: CocktailActionType.DELETE,
     id,
+  };
+};
+
+export const addIngredient = (newIngredient: IngredientType) => {
+  return {
+    type: CocktailActionType.NEW_ING,
+    payload: newIngredient,
   };
 };

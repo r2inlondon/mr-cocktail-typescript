@@ -13,11 +13,20 @@ const NewCocktailPage = ({ dispatch }: ConnectProps) => {
   const navigate = useNavigate();
 
   const handleAddCocktail = (cocktail: CocktailType) => {
+    if (!cocktail.ingredients) {
+      cocktail.ingredients = [];
+    }
+
     dispatch(addCocktail(cocktail));
     navigate("/");
   };
 
-  return <CocktailForm handleAddCocktail={handleAddCocktail} />;
+  return (
+    <CocktailForm
+      handleItem={handleAddCocktail}
+      itemDescription="cocktail name"
+    />
+  );
 };
 
 export default connect()(NewCocktailPage);

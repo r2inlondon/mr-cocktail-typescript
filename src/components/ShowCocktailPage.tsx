@@ -4,8 +4,15 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { Link } from "react-router-dom";
 import { cocktailRootState } from "../state/reducers/stateTypes";
-import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
-import { deleteCocktail } from "../state/actions-creators/cocktailActions";
+import {
+  CocktailType,
+  IngredientType,
+} from "../state/reducers/cocktails/cocktailTypes";
+import {
+  deleteCocktail,
+  addIngredient,
+} from "../state/actions-creators/cocktailActions";
+import CocktailForm from "./CocktailForm";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -17,7 +24,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const navigate = useNavigate();
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     id: "",
-    name: "",
+    description: "",
   });
 
   useEffect(() => {
@@ -35,28 +42,40 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     navigate("/");
   };
 
+  const handleAddIngredient = (newIngredient: IngredientType) => {
+    newIngredient.cocktail_id = id;
+    dispatch(addIngredient(newIngredient));
+  };
+
   return (
-    <div
-      style={{
-        textAlign: "center",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <h2>{theCocktail.name}</h2>
+    <div>
       <div
         style={{
           textAlign: "center",
           display: "flex",
           justifyContent: "space-between",
-          width: "45%",
+          marginBottom: "20px",
         }}
       >
-        <Link to={`/edit/${theCocktail.id}`}>
-          <p>Edit</p>
-        </Link>
-        <button onClick={handleDelete}>Delete</button>
+        <h2>{theCocktail.description}</h2>
+        <div
+          style={{
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "space-between",
+            width: "45%",
+          }}
+        >
+          <Link to={`/edit/${theCocktail.id}`}>
+            <p>Edit</p>
+          </Link>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
       </div>
+      <CocktailForm
+        handleItem={handleAddIngredient}
+        itemDescription="ingredients"
+      />
     </div>
   );
 };

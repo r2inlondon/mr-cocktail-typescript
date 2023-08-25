@@ -19,9 +19,9 @@ export const editCocktail = ({ id, updates }: EditCocktailAction) => {
   };
 };
 
-export const deleteCocktail = (cocktail: CocktailType) => {
+export const deleteCocktail = (id: string) => {
   return {
     type: CocktailActionType.DELETE,
-    payload: cocktail,
+    id,
   };
 };

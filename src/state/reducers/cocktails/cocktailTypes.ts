@@ -17,7 +17,7 @@ type NewCocktailAction = {
 
 type DeleteCocktailAction = {
   type: CocktailActionType.DELETE;
-  payload?: CocktailType;
+  id: string;
 };
 
 export type EditCocktailAction = {

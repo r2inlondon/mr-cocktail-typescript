@@ -1,29 +1,38 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import { Dispatch } from "redux";
 import { Link } from "react-router-dom";
 import { cocktailRootState } from "../state/reducers/stateTypes";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
+import { deleteCocktail } from "../state/actions-creators/cocktailActions";
 
 type PropsType = {
   cocktails: CocktailType[];
+  dispatch: Dispatch;
 };
 
-const ShowCocktailPage = ({ cocktails }: PropsType) => {
+const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     id: "",
     name: "",
   });
 
   useEffect(() => {
-    const found = cocktails.find((item) => item.id === id);
+    const cocktailFound = cocktails.find((item) => item.id === id);
 
-    if (found) setTheCocktail(found);
-  }, [cocktails, id]);
+    if (cocktailFound) setTheCocktail(cocktailFound);
+
+    if (!cocktailFound) navigate("/");
+  }, [cocktails, id, navigate]);
 
   const handleDelete = () => {
-    console.log("delete");
+    if (!id) return console.log("error");
+
+    dispatch(deleteCocktail(id));
+    navigate("/");
   };
 
   return (

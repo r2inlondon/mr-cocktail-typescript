@@ -41,6 +41,8 @@ const CocktailForm = ({
     } else {
       handleItem({ id, description: checkedDescription });
     }
+
+    setNewItem("");
   };
 
   return (

@@ -13,6 +13,7 @@ import {
   addIngredient,
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
+import ListIngredients from "./ListIngredients";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -47,6 +48,11 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     dispatch(addIngredient(newIngredient));
   };
 
+  const handleDeleteIngredient = (id: string) => {
+    console.log(id);
+    // dispatch(deleteIngredient(id));
+  };
+
   return (
     <div>
       <div
@@ -75,6 +81,10 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
       <CocktailForm
         handleItem={handleAddIngredient}
         itemDescription="ingredients"
+      />
+      <ListIngredients
+        ingredients={theCocktail.ingredients}
+        handleDelete={handleDeleteIngredient}
       />
     </div>
   );

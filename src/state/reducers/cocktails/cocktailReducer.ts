@@ -32,7 +32,18 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
           };
         }
       });
-
+    case CocktailActionType.DELETE_ING:
+      return state.map((item) => {
+        if (item.id === action.id) {
+          const updatedIngredients = item.ingredients?.filter(
+            (ing) => ing.id !== action.ingredient_id
+          );
+          return {
+            ...item,
+            ingredients: updatedIngredients,
+          };
+        }
+      });
     default:
       return state;
   }

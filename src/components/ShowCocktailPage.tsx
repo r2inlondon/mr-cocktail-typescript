@@ -11,6 +11,7 @@ import {
 import {
   deleteCocktail,
   addIngredient,
+  deleteIngredient,
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
@@ -29,7 +30,11 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   });
 
   useEffect(() => {
-    const cocktailFound = cocktails.find((item) => item.id === id);
+    if (cocktails.length === 0) return console.log("No cocktail to show");
+
+    const cocktailFound = cocktails.find((item) => {
+      return item.id === id;
+    });
 
     if (cocktailFound) setTheCocktail(cocktailFound);
 
@@ -48,9 +53,10 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     dispatch(addIngredient(newIngredient));
   };
 
-  const handleDeleteIngredient = (id: string) => {
-    console.log(id);
-    // dispatch(deleteIngredient(id));
+  const handleDeleteIngredient = (ingredient_id: string) => {
+    if (!id) return console.log("No cocktail to delete ingredient from");
+
+    dispatch(deleteIngredient(id, ingredient_id));
   };
 
   return (

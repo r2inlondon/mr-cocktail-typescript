@@ -33,3 +33,11 @@ export const addIngredient = (newIngredient: IngredientType) => {
     payload: newIngredient,
   };
 };
+
+export const deleteIngredient = (id: string, ingredient_id: string) => {
+  return {
+    type: CocktailActionType.DELETE_ING,
+    id,
+    ingredient_id,
+  };
+};

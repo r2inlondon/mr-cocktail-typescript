@@ -16,6 +16,7 @@ export enum CocktailActionType {
   DELETE = "DELETE",
   EDIT = "EDIT",
   NEW_ING = "NEW_ING",
+  DELETE_ING = "DELETE_ING",
 }
 
 type NewCocktailAction = {
@@ -34,13 +35,20 @@ export type EditCocktailAction = {
   updates: string;
 };
 
-export type AddIngredient = {
+export type TypeAddIngredient = {
   type: CocktailActionType.NEW_ING;
   payload: IngredientType;
+};
+
+export type TypeDeleteIngredient = {
+  type: CocktailActionType.DELETE_ING;
+  id: string;
+  ingredient_id: string;
 };
 
 export type CocktailAction =
   | NewCocktailAction
   | DeleteCocktailAction
   | EditCocktailAction
-  | AddIngredient;
+  | TypeAddIngredient
+  | TypeDeleteIngredient;

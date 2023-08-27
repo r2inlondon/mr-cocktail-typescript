@@ -32,7 +32,6 @@ export const deleteCocktail = (id: string) => {
 };
 
 export const addIngredient = (newIngredient: IngredientType) => {
-  console.log(newIngredient);
   return {
     type: CocktailActionType.NEW_ING,
     payload: newIngredient,

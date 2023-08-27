@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
-import CocktailForm from "./CocktailForm";
+import SingleInputForm from "./SingleInputForm";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { addCocktail } from "../state/actions-creators/cocktailActions";
+import { v1 as uuidv1 } from "uuid";
 
 type ConnectProps = {
   dispatch: Dispatch;
@@ -12,21 +13,24 @@ type ConnectProps = {
 const NewCocktailPage = ({ dispatch }: ConnectProps) => {
   const navigate = useNavigate();
 
-  const handleAddCocktail = (cocktail: CocktailType) => {
-    if (!cocktail.ingredients) {
-      cocktail.ingredients = [];
-    }
+  const handleAddCocktail = (userInput: string) => {
+    const v1options = {
+      msecs: new Date().getTime(),
+    };
 
-    dispatch(addCocktail(cocktail));
+    const cocktail_id: string = uuidv1(v1options);
+
+    const newCocktail: CocktailType = {
+      id: cocktail_id,
+      description: userInput,
+      ingredients: [],
+    };
+
+    dispatch(addCocktail(newCocktail));
     navigate("/");
   };
 
-  return (
-    <CocktailForm
-      handleItem={handleAddCocktail}
-      itemDescription="cocktail name"
-    />
-  );
+  return <SingleInputForm label="Cocktail" handleItem={handleAddCocktail} />;
 };
 
 export default connect()(NewCocktailPage);

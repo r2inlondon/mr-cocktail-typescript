@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { cocktailRootState } from "../state/reducers/stateTypes";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
-import CocktailForm from "./CocktailForm";
+// import CocktailForm from "./CocktailForm";
 import { editCocktail } from "../state/actions-creators/cocktailActions";
+import SingleInputForm from "./SingleInputForm";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -21,21 +22,24 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     ingredients: [],
   });
 
-  const handleAddCocktail = ({ id, description: name }: CocktailType) => {
-    dispatch(editCocktail({ id, updates: name }));
-    navigate("/");
-  };
-
   useEffect(() => {
     const found = cocktails.find((item) => item.id === id);
 
     if (found) setCocktailToEdit(found);
   }, [cocktails, id]);
 
+  const handleEditCocktail = (updates: string) => {
+    if (!id) return console.log("id error");
+
+    dispatch(editCocktail({ id, updates }));
+    navigate("/");
+  };
+
   return (
-    <CocktailForm
-      handleItem={handleAddCocktail}
-      cocktailToEdit={cocktailToEdit}
+    <SingleInputForm
+      label="cocktail"
+      handleItem={handleEditCocktail}
+      cocktailToEdit={cocktailToEdit.description}
     />
   );
 };

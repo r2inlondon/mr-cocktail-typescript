@@ -13,7 +13,7 @@ import {
   addIngredient,
   deleteIngredient,
 } from "../state/actions-creators/cocktailActions";
-import SingleInputForm from "./SingleInputForm";
+import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
 import { v1 as uuidv1 } from "uuid";
 
@@ -97,7 +97,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
           <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
-      <SingleInputForm handleItem={handleAddIngredient} label="ingredients" />
+      <CocktailForm handleItem={handleAddIngredient} label="ingredients" />
       <ListIngredients
         ingredients={theCocktail.ingredients}
         handleDelete={handleDeleteIngredient}

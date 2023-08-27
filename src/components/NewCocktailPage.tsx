@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
-import SingleInputForm from "./SingleInputForm";
+import CocktailForm from "./CocktailForm";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { addCocktail } from "../state/actions-creators/cocktailActions";
 import { v1 as uuidv1 } from "uuid";
@@ -30,7 +30,7 @@ const NewCocktailPage = ({ dispatch }: ConnectProps) => {
     navigate("/");
   };
 
-  return <SingleInputForm label="Cocktail" handleItem={handleAddCocktail} />;
+  return <CocktailForm label="Cocktail" handleItem={handleAddCocktail} />;
 };
 
 export default connect()(NewCocktailPage);

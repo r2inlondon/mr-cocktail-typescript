@@ -6,7 +6,7 @@ import { cocktailRootState } from "../state/reducers/stateTypes";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 // import CocktailForm from "./CocktailForm";
 import { editCocktail } from "../state/actions-creators/cocktailActions";
-import SingleInputForm from "./SingleInputForm";
+import CocktailForm from "./CocktailForm";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -36,7 +36,7 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   };
 
   return (
-    <SingleInputForm
+    <CocktailForm
       label="cocktail"
       handleItem={handleEditCocktail}
       cocktailToEdit={cocktailToEdit.description}

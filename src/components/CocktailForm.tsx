@@ -6,7 +6,7 @@ type PropsType = {
   cocktailToEdit?: string;
 };
 
-const SingleInputForm = ({ label, handleItem, cocktailToEdit }: PropsType) => {
+const CocktailForm = ({ label, handleItem, cocktailToEdit }: PropsType) => {
   const [newItem, setNewItem] = useState<string>("");
 
   useEffect(() => {
@@ -45,4 +45,4 @@ const SingleInputForm = ({ label, handleItem, cocktailToEdit }: PropsType) => {
   );
 };
 
-export default SingleInputForm;
+export default CocktailForm;

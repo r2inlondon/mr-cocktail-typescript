@@ -27,6 +27,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     id: "",
     description: "",
+    ingredients: [],
   });
 
   useEffect(() => {

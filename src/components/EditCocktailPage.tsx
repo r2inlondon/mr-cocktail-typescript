@@ -18,6 +18,7 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const [cocktailToEdit, setCocktailToEdit] = useState<CocktailType>({
     id: "",
     description: "",
+    ingredients: [],
   });
 
   const handleAddCocktail = ({ id, description: name }: CocktailType) => {

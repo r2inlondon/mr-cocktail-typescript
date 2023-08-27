@@ -2,7 +2,7 @@ export type CocktailType = {
   id: string;
   description: string;
   image?: string;
-  ingredients?: IngredientType[];
+  ingredients: IngredientType[];
 };
 
 export type IngredientType = {

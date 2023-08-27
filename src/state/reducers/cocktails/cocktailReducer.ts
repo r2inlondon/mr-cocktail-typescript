@@ -14,9 +14,8 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
       return state.map((item) => {
         if (item.id === action.id) {
           return { ...item, description: action.updates };
-        } else {
-          return item;
         }
+        return item;
       });
     case CocktailActionType.DELETE:
       return state.filter((item) => item.id !== action.id);
@@ -31,6 +30,7 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
             ingredients: updatedIngredients,
           };
         }
+        return item;
       });
     case CocktailActionType.DELETE_ING:
       return state.map((item) => {
@@ -43,6 +43,7 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
             ingredients: updatedIngredients,
           };
         }
+        return item;
       });
     default:
       return state;

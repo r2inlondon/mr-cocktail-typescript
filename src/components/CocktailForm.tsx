@@ -4,7 +4,7 @@ import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   handleItem: (cocktail: CocktailType) => void;
-  itemDescription: string;
+  itemDescription?: string;
   cocktailToEdit?: CocktailType;
 };
 
@@ -37,9 +37,14 @@ const CocktailForm = ({
     const id: string = uuidv1(v1options);
 
     if (cocktailToEdit) {
-      handleItem({ id: cocktailToEdit.id, description: checkedDescription });
+      const editedCocktail = {
+        ...cocktailToEdit,
+        description: checkedDescription,
+      };
+
+      handleItem(editedCocktail);
     } else {
-      handleItem({ id, description: checkedDescription });
+      handleItem({ id, description: checkedDescription, ingredients: [] });
     }
 
     setNewItem("");

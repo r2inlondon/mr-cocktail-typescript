@@ -3,8 +3,8 @@ import { Dispatch } from "redux";
 import { useNavigate } from "react-router-dom";
 import CocktailForm from "./CocktailForm";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
-import { addCocktail } from "../state/actions-creators/cocktailActions";
-import { v1 as uuidv1 } from "uuid";
+import { startAddCocktail } from "../state/actions-creators/cocktailActions";
+import type {} from "redux-thunk/extend-redux";
 
 type ConnectProps = {
   dispatch: Dispatch;
@@ -14,19 +14,12 @@ const NewCocktailPage = ({ dispatch }: ConnectProps) => {
   const navigate = useNavigate();
 
   const handleAddCocktail = (userInput: string) => {
-    const v1options = {
-      msecs: new Date().getTime(),
-    };
-
-    const cocktail_id: string = uuidv1(v1options);
-
     const newCocktail: CocktailType = {
-      id: cocktail_id,
-      description: userInput,
+      name: userInput,
       ingredients: [],
     };
 
-    dispatch(addCocktail(newCocktail));
+    dispatch(startAddCocktail(newCocktail));
     navigate("/");
   };
 

@@ -13,7 +13,7 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
     case CocktailActionType.EDIT:
       return state.map((item) => {
         if (item.id === action.id) {
-          return { ...item, description: action.updates };
+          return { ...item, name: action.updates };
         }
         return item;
       });

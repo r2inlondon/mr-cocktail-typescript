@@ -18,7 +18,7 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const { id } = useParams();
   const [cocktailToEdit, setCocktailToEdit] = useState<CocktailType>({
     id: "",
-    description: "",
+    name: "",
     ingredients: [],
   });
 
@@ -39,7 +39,7 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     <CocktailForm
       label="cocktail"
       handleItem={handleEditCocktail}
-      cocktailToEdit={cocktailToEdit.description}
+      cocktailToEdit={cocktailToEdit.name}
     />
   );
 };

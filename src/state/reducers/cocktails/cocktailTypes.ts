@@ -1,6 +1,6 @@
 export type CocktailType = {
-  id: string;
-  description: string;
+  id?: string;
+  name: string;
   image?: string;
   ingredients: IngredientType[];
 };

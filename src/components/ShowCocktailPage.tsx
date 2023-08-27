@@ -27,7 +27,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const navigate = useNavigate();
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     id: "",
-    description: "",
+    name: "",
     ingredients: [],
   });
 
@@ -40,7 +40,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
 
     if (cocktailFound) setTheCocktail(cocktailFound);
 
-    if (!cocktailFound) navigate("/");
+    // if (!cocktailFound) navigate("/");
   }, [cocktails, id, navigate]);
 
   const handleDelete = () => {
@@ -82,7 +82,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
           marginBottom: "20px",
         }}
       >
-        <h2>{theCocktail.description}</h2>
+        <h2>{theCocktail.name}</h2>
         <div
           style={{
             textAlign: "center",

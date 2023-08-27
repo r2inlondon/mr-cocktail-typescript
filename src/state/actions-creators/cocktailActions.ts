@@ -1,3 +1,4 @@
+import { Dispatch } from "redux";
 import {
   CocktailType,
   CocktailActionType,
@@ -5,11 +6,29 @@ import {
   IngredientType,
 } from "../reducers/cocktails/cocktailTypes";
 
-// export const startAddCocktail = (cocktail: CocktailType) => {
+export const startAddCocktail = (cocktail: CocktailType) => {
+  return (dispatch: Dispatch) => {
+    fetch("http://localhost:8000/api/v1/cocktails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cocktail),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        const newCocktail = response.data;
+        newCocktail.ingredients = [];
+        newCocktail.id = newCocktail.id.toString();
+        dispatch(addCocktail(newCocktail));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
 
-// }
-
-export const addCocktail = (cocktail: CocktailType) => {
+const addCocktail = (cocktail: CocktailType) => {
   return {
     type: CocktailActionType.NEW,
     payload: cocktail,

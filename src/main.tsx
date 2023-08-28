@@ -6,7 +6,7 @@ import { store } from "./state/store";
 import App from "./App.tsx";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const jsx = (
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -15,3 +15,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </Provider>
   </React.StrictMode>
 );
+
+ReactDOM.createRoot(document.getElementById("root")!).render(jsx);

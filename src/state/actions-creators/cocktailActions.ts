@@ -6,9 +6,34 @@ import {
   IngredientType,
 } from "../reducers/cocktails/cocktailTypes";
 
+const setCocktails = (cocktails: CocktailType[]) => {
+  return {
+    type: CocktailActionType.SET_COCKTAILS,
+    payload: cocktails,
+  };
+};
+
+export const startSetCocktails = () => {
+  return (dispatch: Dispatch) => {
+    fetch(import.meta.env.VITE_BACKEND_URL)
+      .then((response) => response.json())
+      .then((response) => {
+        const cocktails = response.data;
+        cocktails.forEach((cocktail: CocktailType) => {
+          cocktail.ingredients = [];
+          cocktail.id = cocktail.id?.toString();
+        });
+        dispatch(setCocktails(cocktails));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
+
 export const startAddCocktail = (cocktail: CocktailType) => {
   return (dispatch: Dispatch) => {
-    fetch("http://localhost:8000/api/v1/cocktails", {
+    fetch(import.meta.env.VITE_BACKEND_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

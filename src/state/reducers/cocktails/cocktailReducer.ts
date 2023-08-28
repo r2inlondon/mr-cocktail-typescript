@@ -45,6 +45,8 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
         }
         return item;
       });
+    case CocktailActionType.SET_COCKTAILS:
+      return action.payload;
     default:
       return state;
   }

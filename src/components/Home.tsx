@@ -14,7 +14,6 @@ const Home = ({ cocktails }: HomeProps) => {
     <>
       <h1>Home Page</h1>
       <FilterCocktails />
-      {/* {cocktails && <ListCocktails cocktails={cocktails} />} */}
       <ListCocktails cocktails={cocktails} />
     </>
   );

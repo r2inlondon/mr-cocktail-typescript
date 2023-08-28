@@ -109,7 +109,34 @@ const editCocktail = ({ id, name }: EditCocktailAction) => {
   };
 };
 
-export const addIngredient = (newIngredient: IngredientType) => {
+export const startAddIngredient = (ingredient: IngredientType) => {
+  return (dispatch: Dispatch) => {
+    fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/${
+        ingredient.cocktail_id
+      }/ingredients`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ingredient),
+      }
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        const newIngredient = response.data;
+        newIngredient.id = newIngredient.id.toString();
+        newIngredient.cocktail_id = newIngredient.cocktail_id.toString();
+        dispatch(addIngredient(newIngredient));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
+
+const addIngredient = (newIngredient: IngredientType) => {
   return {
     type: CocktailActionType.NEW_ING,
     payload: newIngredient,

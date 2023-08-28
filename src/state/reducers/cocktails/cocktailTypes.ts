@@ -6,9 +6,9 @@ export type CocktailType = {
 };
 
 export type IngredientType = {
-  id: string;
+  id?: string;
   description: string;
-  cocktail_id?: string;
+  cocktail_id: string;
 };
 
 export enum CocktailActionType {

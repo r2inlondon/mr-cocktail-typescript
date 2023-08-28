@@ -10,12 +10,12 @@ import {
 } from "../state/reducers/cocktails/cocktailTypes";
 import {
   startDeleteCocktail,
-  addIngredient,
+  startAddIngredient,
   deleteIngredient,
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
-import { v1 as uuidv1 } from "uuid";
+// import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -51,19 +51,14 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   };
 
   const handleAddIngredient = (ingredient: string) => {
-    const v1options = {
-      msecs: new Date().getTime(),
-    };
-
-    const Ingredient_id: string = uuidv1(v1options);
+    if (!id) return console.log("error");
 
     const newIngredient: IngredientType = {
-      id: Ingredient_id,
       description: ingredient,
       cocktail_id: id,
     };
 
-    dispatch(addIngredient(newIngredient));
+    dispatch(startAddIngredient(newIngredient));
   };
 
   const handleDeleteIngredient = (ingredient_id: string) => {

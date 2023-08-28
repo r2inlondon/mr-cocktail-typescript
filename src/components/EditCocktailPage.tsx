@@ -5,7 +5,7 @@ import { Dispatch } from "redux";
 import { cocktailRootState } from "../state/reducers/stateTypes";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 // import CocktailForm from "./CocktailForm";
-import { editCocktail } from "../state/actions-creators/cocktailActions";
+import { startEditCocktail } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 
 type PropsType = {
@@ -31,7 +31,7 @@ const EditCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const handleEditCocktail = (updates: string) => {
     if (!id) return console.log("id error");
 
-    dispatch(editCocktail({ id, updates }));
+    dispatch(startEditCocktail(id, updates));
     navigate("/");
   };
 

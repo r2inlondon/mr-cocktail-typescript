@@ -38,7 +38,7 @@ type DeleteCocktailAction = {
 export type EditCocktailAction = {
   type?: CocktailActionType.EDIT;
   id: string;
-  updates: string;
+  name: string;
 };
 
 export type TypeAddIngredient = {

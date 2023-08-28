@@ -36,7 +36,7 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
       return state.map((item) => {
         if (item.id === action.id) {
           const updatedIngredients = item.ingredients?.filter(
-            (ing) => ing.id !== action.ingredient_id
+            (ing) => ing.id !== Number(action.ingredient_id)
           );
           return {
             ...item,

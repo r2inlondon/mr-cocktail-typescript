@@ -15,7 +15,6 @@ import {
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
-// import { v1 as uuidv1 } from "uuid";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -61,7 +60,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     dispatch(startAddIngredient(newIngredient));
   };
 
-  const handleDeleteIngredient = (ingredient_id: string) => {
+  const handleDeleteIngredient = (ingredient_id: number) => {
     if (!id) return console.log("No cocktail to delete ingredient from");
 
     dispatch(deleteIngredient(id, ingredient_id));

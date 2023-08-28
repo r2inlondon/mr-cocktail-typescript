@@ -20,7 +20,6 @@ export const startSetCocktails = () => {
       .then((response) => {
         const cocktails = response.data;
         cocktails.forEach((cocktail: CocktailType) => {
-          cocktail.ingredients = [];
           cocktail.id = cocktail.id?.toString();
         });
         dispatch(setCocktails(cocktails));
@@ -43,7 +42,7 @@ export const startAddCocktail = (cocktail: CocktailType) => {
       .then((response) => response.json())
       .then((response) => {
         const newCocktail = response.data;
-        newCocktail.ingredients = [];
+        // newCocktail.ingredients = [];
         newCocktail.id = newCocktail.id.toString();
         dispatch(addCocktail(newCocktail));
       })
@@ -143,7 +142,7 @@ const addIngredient = (newIngredient: IngredientType) => {
   };
 };
 
-export const deleteIngredient = (id: string, ingredient_id: string) => {
+export const deleteIngredient = (id: string, ingredient_id: number) => {
   return {
     type: CocktailActionType.DELETE_ING,
     id,

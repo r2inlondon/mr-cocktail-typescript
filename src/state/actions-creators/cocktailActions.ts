@@ -60,11 +60,18 @@ const addCocktail = (cocktail: CocktailType) => {
   };
 };
 
-export const editCocktail = ({ id, updates }: EditCocktailAction) => {
-  return {
-    type: CocktailActionType.EDIT,
-    id,
-    updates,
+export const startDeleteCocktail = (id: string) => {
+  return (dispatch: Dispatch) => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => {
+        dispatch(deleteCocktail(id));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 };
 
@@ -72,6 +79,14 @@ export const deleteCocktail = (id: string) => {
   return {
     type: CocktailActionType.DELETE,
     id,
+  };
+};
+
+export const editCocktail = ({ id, updates }: EditCocktailAction) => {
+  return {
+    type: CocktailActionType.EDIT,
+    id,
+    updates,
   };
 };
 

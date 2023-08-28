@@ -9,7 +9,7 @@ import {
   IngredientType,
 } from "../state/reducers/cocktails/cocktailTypes";
 import {
-  deleteCocktail,
+  startDeleteCocktail,
   addIngredient,
   deleteIngredient,
 } from "../state/actions-creators/cocktailActions";
@@ -46,7 +46,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const handleDelete = () => {
     if (!id) return console.log("error");
 
-    dispatch(deleteCocktail(id));
+    dispatch(startDeleteCocktail(id));
     navigate("/");
   };
 

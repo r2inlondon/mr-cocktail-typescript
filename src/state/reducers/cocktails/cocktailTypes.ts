@@ -6,7 +6,7 @@ export type CocktailType = {
 };
 
 export type IngredientType = {
-  id?: number;
+  id?: string;
   description: string;
   cocktail_id: string;
 };

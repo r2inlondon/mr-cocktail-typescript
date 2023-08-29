@@ -142,10 +142,33 @@ const addIngredient = (newIngredient: IngredientType) => {
   };
 };
 
-export const deleteIngredient = (id: string, ingredient_id: number) => {
+export const startDeleteIngredient = (
+  cocktail_id: string,
+  ingredient_id: string
+) => {
+  return (dispatch: Dispatch) => {
+    fetch(
+      `${
+        import.meta.env.VITE_BACKEND_URL
+      }/${cocktail_id}/ingredients/${ingredient_id}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((response) => response.json())
+      .then(() => {
+        dispatch(deleteIngredient(cocktail_id, ingredient_id));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+};
+
+const deleteIngredient = (cocktail_id: string, ingredient_id: string) => {
   return {
     type: CocktailActionType.DELETE_ING,
-    id,
+    id: cocktail_id,
     ingredient_id,
   };
 };

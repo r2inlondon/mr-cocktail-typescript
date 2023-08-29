@@ -11,7 +11,7 @@ import {
 import {
   startDeleteCocktail,
   startAddIngredient,
-  deleteIngredient,
+  startDeleteIngredient,
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
@@ -60,10 +60,10 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     dispatch(startAddIngredient(newIngredient));
   };
 
-  const handleDeleteIngredient = (ingredient_id: number) => {
+  const handleDeleteIngredient = (ingredient_id: string) => {
     if (!id) return console.log("No cocktail to delete ingredient from");
 
-    dispatch(deleteIngredient(id, ingredient_id));
+    dispatch(startDeleteIngredient(id, ingredient_id));
   };
 
   return (

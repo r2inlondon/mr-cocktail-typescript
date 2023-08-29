@@ -1,14 +1,14 @@
 export type CocktailType = {
-  id?: string;
+  id?: number;
   name: string;
   image?: string;
   ingredients: IngredientType[];
 };
 
 export type IngredientType = {
-  id?: string;
+  id?: number;
   description: string;
-  cocktail_id: string;
+  cocktail_id: number;
 };
 
 export enum CocktailActionType {
@@ -32,12 +32,12 @@ type NewCocktailAction = {
 
 type DeleteCocktailAction = {
   type: CocktailActionType.DELETE;
-  id: string;
+  id: number;
 };
 
 export type EditCocktailAction = {
   type?: CocktailActionType.EDIT;
-  id: string;
+  id: number;
   name: string;
 };
 
@@ -48,8 +48,8 @@ export type TypeAddIngredient = {
 
 export type TypeDeleteIngredient = {
   type: CocktailActionType.DELETE_ING;
-  id: string;
-  ingredient_id: string;
+  id: number;
+  ingredient_id: number;
 };
 
 export type CocktailAction =

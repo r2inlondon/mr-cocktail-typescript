@@ -25,7 +25,6 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
-    id: "",
     name: "",
     ingredients: [],
   });
@@ -34,7 +33,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     if (cocktails.length === 0) return console.log("No cocktail to show");
 
     const cocktailFound = cocktails.find((item) => {
-      return item.id === id;
+      return item.id === Number(id);
     });
 
     if (cocktailFound) setTheCocktail(cocktailFound);
@@ -45,7 +44,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const handleDelete = () => {
     if (!id) return console.log("error");
 
-    dispatch(startDeleteCocktail(id));
+    dispatch(startDeleteCocktail(Number(id)));
     navigate("/");
   };
 
@@ -54,16 +53,16 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
 
     const newIngredient: IngredientType = {
       description: ingredient,
-      cocktail_id: id,
+      cocktail_id: Number(id),
     };
 
     dispatch(startAddIngredient(newIngredient));
   };
 
-  const handleDeleteIngredient = (ingredient_id: string) => {
+  const handleDeleteIngredient = (ingredient_id: number) => {
     if (!id) return console.log("No cocktail to delete ingredient from");
 
-    dispatch(startDeleteIngredient(id, ingredient_id));
+    dispatch(startDeleteIngredient(Number(id), ingredient_id));
   };
 
   return (

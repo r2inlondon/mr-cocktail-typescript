@@ -33,7 +33,6 @@ const cocktailReducer = (state = initialState, action: CocktailAction) => {
         return item;
       });
     case CocktailActionType.DELETE_ING:
-      console.log(action);
       return state.map((item) => {
         if (item.id === action.id) {
           const updatedIngredients = item.ingredients?.filter(

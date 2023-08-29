@@ -19,9 +19,9 @@ export const startSetCocktails = () => {
       .then((response) => response.json())
       .then((response) => {
         const cocktails = response.data;
-        cocktails.forEach((cocktail: CocktailType) => {
-          cocktail.id = cocktail.id?.toString();
-        });
+        // cocktails.forEach((cocktail: CocktailType) => {
+        //   cocktail.id = cocktail.id?.toString();
+        // });
         dispatch(setCocktails(cocktails));
       })
       .catch((error) => {
@@ -43,7 +43,7 @@ export const startAddCocktail = (cocktail: CocktailType) => {
       .then((response) => {
         const newCocktail = response.data;
         // newCocktail.ingredients = [];
-        newCocktail.id = newCocktail.id.toString();
+        // newCocktail.id = newCocktail.id.toString();
         dispatch(addCocktail(newCocktail));
       })
       .catch((error) => {
@@ -59,7 +59,7 @@ const addCocktail = (cocktail: CocktailType) => {
   };
 };
 
-export const startDeleteCocktail = (id: string) => {
+export const startDeleteCocktail = (id: number) => {
   return (dispatch: Dispatch) => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/${id}`, {
       method: "DELETE",
@@ -74,14 +74,14 @@ export const startDeleteCocktail = (id: string) => {
   };
 };
 
-const deleteCocktail = (id: string) => {
+const deleteCocktail = (id: number) => {
   return {
     type: CocktailActionType.DELETE,
     id,
   };
 };
 
-export const startEditCocktail = (id: string, name: string) => {
+export const startEditCocktail = (id: number, name: string) => {
   return (dispatch: Dispatch) => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/${id}`, {
       method: "PATCH",
@@ -124,10 +124,10 @@ export const startAddIngredient = (ingredient: IngredientType) => {
     )
       .then((response) => response.json())
       .then((response) => {
-        const newIngredient = response.data;
-        newIngredient.id = newIngredient.id.toString();
-        newIngredient.cocktail_id = newIngredient.cocktail_id.toString();
-        dispatch(addIngredient(newIngredient));
+        // const newIngredient = response.data;
+        // newIngredient.id = newIngredient.id.toString();
+        // newIngredient.cocktail_id = newIngredient.cocktail_id.toString();
+        dispatch(addIngredient(response.data));
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -143,8 +143,8 @@ const addIngredient = (newIngredient: IngredientType) => {
 };
 
 export const startDeleteIngredient = (
-  cocktail_id: string,
-  ingredient_id: string
+  cocktail_id: number,
+  ingredient_id: number
 ) => {
   return (dispatch: Dispatch) => {
     fetch(
@@ -165,7 +165,7 @@ export const startDeleteIngredient = (
   };
 };
 
-const deleteIngredient = (cocktail_id: string, ingredient_id: string) => {
+const deleteIngredient = (cocktail_id: number, ingredient_id: number) => {
   return {
     type: CocktailActionType.DELETE_ING,
     id: cocktail_id,

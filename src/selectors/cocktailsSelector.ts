@@ -18,11 +18,12 @@ const cocktailsSelector = (
     })
     .sort((a, b) => {
       if (sortBy === "name") {
-        return a.name < b.name ? 1 : -1;
+        // return a.name < b.name ? -1 : 1;
+        return a.name.localeCompare(b.name);
       } else {
         const idA = a.id ?? Number.MAX_SAFE_INTEGER;
         const idB = b.id ?? Number.MAX_SAFE_INTEGER;
-        return idA < idB ? -1 : 1;
+        return idA < idB ? 1 : -1;
       }
     });
 };

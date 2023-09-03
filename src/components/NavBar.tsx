@@ -3,13 +3,16 @@ import logo from "../assets/logo.svg";
 
 const NavBar = () => (
   <div className="bg-black">
-    <ul className="flex h-16 items-center justify-between text-white">
+    <ul className="m-auto flex h-16 w-8/12 items-center justify-between text-white">
       <li>
-        <img src={logo} alt="Logo" className="h-10 text-white invert " />
+        <img src={logo} alt="Logo" className="h-10 text-white invert" />
+      </li>
+      <li>
+        <p className="font-dancing-script text-2xl ">Mr. Cocktail</p>
       </li>
       <li>
         <Link to="/">
-          <p className="">Home</p>
+          <p className="text-xl font-bold duration-300 hover:scale-125">Home</p>
         </Link>
       </li>
       {/* <li>

@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => (
   <Fragment>
-    <ul style={{ display: "flex", listStyle: "none", gap: "1rem" }}>
+    <ul className="flex justify-between bg-black text-white">
       <li>
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <p className="">Home</p>
+        </Link>
       </li>
       <li>
         <Link to="/new">New Cocktail</Link>

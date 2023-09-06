@@ -8,11 +8,13 @@ const NavBar = () => (
         <img src={logo} alt="Logo" className="h-10 text-white invert" />
       </li>
       <li>
-        <p className="font-dancing-script text-2xl ">Mr. Cocktail</p>
+        <p className="font-dancing-script text-3xl ">Mr. Cocktail</p>
       </li>
       <li>
         <Link to="/">
-          <p className="text-xl font-bold duration-300 hover:scale-125">Home</p>
+          <p className="text-2xl font-bold duration-300 hover:scale-125">
+            Home
+          </p>
         </Link>
       </li>
       {/* <li>

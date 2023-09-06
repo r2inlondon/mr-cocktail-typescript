@@ -7,12 +7,16 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --btn-color: #c9ffff;
-  --btn-color-hover: #c9ffff;
+  --btn-color: #42f6ffdc;
+  --btn-color-hover: #27dae7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Poppins;
 }

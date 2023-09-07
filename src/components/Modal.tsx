@@ -35,8 +35,11 @@ const Modal = ({ showModal, setShowModal, children }: PropsType) => {
               aria-modal="true"
               aria-labelledby="modal-headline"
             >
-              <div className="flex justify-end p-2">
-                <button onClick={() => setShowModal(false)}>
+              <div className="flex justify-end">
+                <button
+                  className="rounded-md p-1 duration-300 hover:bg-stone-50"
+                  onClick={() => setShowModal(false)}
+                >
                   <img src={closeIcon} alt="close icon" />
                 </button>
               </div>

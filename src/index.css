@@ -7,8 +7,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --btn-color: #42f6ffdc;
-  --btn-color-hover: #27dae7;
+  --btn-color-pri: #42f6ffdc;
+  --btn-color-hover: #3cdde6dc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

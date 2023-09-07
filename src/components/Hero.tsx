@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Dispatch } from "redux";
+import { connect } from "react-redux";
 import { CocktailType } from "../state/reducers/cocktails/cocktailTypes";
 import { startAddCocktail } from "../state/actions-creators/cocktailActions";
 import Modal from "./Modal";
 import CocktailForm from "./CocktailForm";
-import { connect } from "react-redux";
 
 type ConnectProps = {
   dispatch: Dispatch;
@@ -12,7 +12,6 @@ type ConnectProps = {
 
 const Hero = ({ dispatch }: ConnectProps) => {
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
 
   const handleAddCocktail = (userInput: string) => {
     console.log("click");
@@ -22,7 +21,6 @@ const Hero = ({ dispatch }: ConnectProps) => {
     };
 
     dispatch(startAddCocktail(newCocktail));
-    // navigate("/");
     setShowModal(false);
   };
 
@@ -38,12 +36,12 @@ const Hero = ({ dispatch }: ConnectProps) => {
           id="hero-txt"
           className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform text-center"
         >
-          <h1 className="mb-10 text-2xl text-white">
+          <h1 className="mb-10 w-[34rem] text-2xl text-white">
             Check out our cocktail recipes, and feel free to add your own!
           </h1>
           <button
             onClick={() => setShowModal(true)}
-            className="rounded-md bg-btn-color px-4 py-2 text-center font-medium text-white duration-300 hover:scale-110"
+            className="rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:scale-110"
           >
             Add New
           </button>

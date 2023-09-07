@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "btn-color": "var(--btn-color)",
+        "btn-color-pri": "var(--btn-color-pri)",
         "btn-color-hover": "var(--btn-color-hover)",
       },
       fontFamily: {

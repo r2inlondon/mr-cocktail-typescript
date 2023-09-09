@@ -20,7 +20,10 @@ const Modal = ({ showModal, setShowModal, children }: PropsType) => {
               className="fixed inset-0 transition-opacity"
               aria-hidden="true"
             >
-              <div className="absolute inset-0 brightness-50 backdrop-blur-sm"></div>
+              <div
+                onClick={() => setShowModal(false)}
+                className="absolute inset-0 brightness-50 backdrop-blur-sm"
+              ></div>
             </div>
 
             <span

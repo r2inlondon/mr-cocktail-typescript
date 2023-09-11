@@ -29,19 +29,19 @@ const Hero = ({ dispatch }: ConnectProps) => {
       <div className="relative h-72">
         <div
           id="hero-img"
-          className=" h-full bg-[url('./assets/bg-hero.jpg')] bg-center "
+          className=" h-full bg-slate-800 bg-center lg:bg-[url('./assets/bg-hero.jpg')] "
         ></div>
         <div className="absolute inset-0 bg-slate-950 opacity-60"></div>
         <div
           id="hero-txt"
-          className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transform text-center"
+          className="absolute left-1/2 top-1/2 z-10 w-11/12 -translate-x-1/2 -translate-y-1/2 transform space-y-4 text-center text-white"
         >
-          <h1 className="mb-10 w-[34rem] text-2xl text-white">
+          <h1 className="text-xl sm:m-auto sm:mb-10 sm:w-[34rem] sm:text-center">
             Check out our cocktail recipes, and feel free to add your own!
           </h1>
           <button
             onClick={() => setShowModal(true)}
-            className="rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:scale-110"
+            className="rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium duration-300 hover:scale-110"
           >
             Add New
           </button>

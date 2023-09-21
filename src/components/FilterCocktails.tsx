@@ -40,9 +40,9 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
 
   return (
     <div className="m-auto flex items-center justify-around lg:w-9/12 lg:justify-between">
-      <div>
+      <div className="relative w-44">
         <button
-          className="shadowfocus:outline-none flex w-40 flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
+          className="shadowfocus:outline-none flex w-full flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
           name="filter-coctkails"
           value={sortBy}
           onClick={() => setShowOptions(!showOptions)}
@@ -51,16 +51,16 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
           <img src={sortingIcon} alt="sorting" />
         </button>
         {showOptions && (
-          <div className="mt-2 rounded-lg bg-white py-2 shadow-xl">
+          <div className="absolute mt-2 w-full rounded-lg bg-white py-2 shadow-xl">
             <div
-              className="block cursor-pointer px-4 py-2 text-gray-800 hover:bg-cyan-100 "
+              className="block cursor-pointer px-4 py-2 text-pink-500 md:text-gray-800 md:hover:bg-cyan-100 "
               id="newest"
               onClick={() => handleFilter("newest")}
             >
               Newest
             </div>
             <div
-              className="block cursor-pointer px-4 py-2 text-gray-800 hover:bg-cyan-100 "
+              className="block cursor-pointer px-4 py-2 text-pink-500 md:text-gray-800 md:hover:bg-cyan-100 "
               id="name"
               onClick={() => handleFilter("name")}
             >

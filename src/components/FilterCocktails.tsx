@@ -3,7 +3,8 @@ import { Dispatch } from "redux";
 import { useState, useEffect } from "react";
 import { FilterRootState } from "../state/reducers/stateTypes";
 import { FilterTypes } from "../state/reducers/filters/filterTypes";
-import sorting from "../assets/sorting.svg";
+import sortingIcon from "../assets/sorting-icon.svg";
+import searchIcon from "../assets/search-icon.svg";
 import {
   sortByName,
   sortByNewest,
@@ -38,19 +39,19 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex justify-around">
       <div>
         <button
-          className="shadowfocus:outline-none flex w-44 flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700"
+          className="shadowfocus:outline-none flex w-40 flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
           name="filter-coctkails"
           value={sortBy}
           onClick={() => setShowOptions(!showOptions)}
         >
-          Show by<span className="text-pink-500">{sortBy}</span>
-          <img src={sorting} alt="sorting" />
+          Sort by<span className="text-pink-500">{sortBy}</span>
+          <img src={sortingIcon} alt="sorting" />
         </button>
         {showOptions && (
-          <div className="mt-2 w-44 rounded-lg bg-white py-2 shadow-xl">
+          <div className="mt-2 rounded-lg bg-white py-2 shadow-xl">
             <div
               className="block cursor-pointer px-4 py-2 text-gray-800 hover:bg-cyan-100 "
               id="newest"
@@ -69,12 +70,16 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
         )}
       </div>
       <h3 className="hidden md:block md:text-lg">Cocktails and recipes</h3>
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-        placeholder="Search cocktails"
-      />
+      <div className="relative h-11 w-44">
+        <img src={searchIcon} alt="search" className="absolute " />
+        <input
+          className="h-full w-full pl-8"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search cocktails"
+        />
+      </div>
     </div>
   );
 };

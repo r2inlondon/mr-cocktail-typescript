@@ -40,7 +40,7 @@ const CocktailForm = ({ label, handleItem, cocktailToEdit }: PropsType) => {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button className="m-auto block w-10/12 rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:bg-btn-color-hover">
+        <button className="m-auto block w-10/12 rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:bg-btn-color-hover ">
           {cocktailToEdit ? "Update" : "Create"}
         </button>
       </form>

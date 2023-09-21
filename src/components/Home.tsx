@@ -6,6 +6,7 @@ import FilterCocktails from "./FilterCocktails";
 import cocktailsSelector from "../selectors/cocktailsSelector";
 import Hero from "./Hero";
 import ListCocktails from "./ListCocktails";
+import Footer from "./Footer";
 
 type HomeProps = {
   cocktails: CocktailType[];
@@ -17,6 +18,7 @@ const Home = ({ cocktails }: HomeProps) => {
       <Hero />
       <FilterCocktails />
       <ListCocktails cocktails={cocktails} />
+      <Footer />
     </Fragment>
   );
 };

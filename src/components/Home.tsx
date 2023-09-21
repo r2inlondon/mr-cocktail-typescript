@@ -15,9 +15,7 @@ const Home = ({ cocktails }: HomeProps) => {
   return (
     <Fragment>
       <Hero />
-      <div className="my-10">
-        <FilterCocktails />
-      </div>
+      <FilterCocktails />
       <ListCocktails cocktails={cocktails} />
     </Fragment>
   );

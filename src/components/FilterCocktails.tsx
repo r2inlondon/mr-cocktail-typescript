@@ -39,7 +39,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
   };
 
   return (
-    <div className="m-auto flex items-center justify-around lg:w-9/12 lg:justify-between">
+    <div className="m-auto my-10 flex items-center justify-around lg:w-9/12 lg:justify-between">
       <div className="relative w-44">
         <button
           className="shadowfocus:outline-none flex w-full flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
@@ -72,7 +72,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
       <h3 className="hidden text-2xl text-cyan-500 lg:block">
         Cocktails and recipes
       </h3>
-      <div className="relative h-11 w-44">
+      <div className="relative h-11 w-44 overflow-hidden rounded-lg">
         <svg
           className="absolute left-1 top-1/2 -translate-y-1/2 transform "
           xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
           />
         </svg>
         <input
-          className="h-full w-full rounded-md pl-8 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+          className="h-full w-full pl-8 focus:outline-none focus:ring-2 focus:ring-cyan-200"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           type="text"

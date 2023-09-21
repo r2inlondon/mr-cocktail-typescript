@@ -39,7 +39,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
   };
 
   return (
-    <div className="flex justify-around">
+    <div className="m-auto flex items-center justify-around lg:w-9/12 lg:justify-between">
       <div>
         <button
           className="shadowfocus:outline-none flex w-40 flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
@@ -69,7 +69,9 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
           </div>
         )}
       </div>
-      <h3 className="hidden md:block md:text-lg">Cocktails and recipes</h3>
+      <h3 className="hidden text-2xl text-cyan-500 lg:block">
+        Cocktails and recipes
+      </h3>
       <div className="relative h-11 w-44">
         <svg
           className="absolute left-1 top-1/2 -translate-y-1/2 transform "

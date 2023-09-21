@@ -36,7 +36,7 @@ const Hero = ({ dispatch }: ConnectProps) => {
           id="hero-txt"
           className="absolute left-1/2 top-1/2 z-10 w-11/12 -translate-x-1/2 -translate-y-1/2 transform space-y-4 text-center text-white"
         >
-          <h1 className="text-xl sm:m-auto sm:mb-10 sm:w-[34rem] sm:text-center">
+          <h1 className="text-xl sm:m-auto sm:mb-10 sm:w-[34rem] sm:text-center lg:text-2xl">
             Check out our cocktail recipes, and feel free to add your own!
           </h1>
           <button

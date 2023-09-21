@@ -3,8 +3,8 @@ import logo from "../assets/logo.svg";
 
 const NavBar = () => (
   <div className="bg-black">
-    <ul className="m-auto flex h-16 w-full items-center justify-between px-4 text-white sm:w-8/12 sm:px-0">
-      <li className="hidden sm:block">
+    <ul className="m-auto flex h-16 w-full items-center justify-between px-4 text-white md:w-8/12 md:px-0">
+      <li className="hidden md:block">
         <img src={logo} alt="Logo" className="h-10 text-white invert" />
       </li>
       <li>

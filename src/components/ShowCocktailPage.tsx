@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
@@ -12,9 +12,11 @@ import {
   startDeleteCocktail,
   startAddIngredient,
   startDeleteIngredient,
+  startEditCocktail,
 } from "../state/actions-creators/cocktailActions";
 import CocktailForm from "./CocktailForm";
 import ListIngredients from "./ListIngredients";
+import Modal from "./Modal";
 
 type PropsType = {
   cocktails: CocktailType[];
@@ -24,6 +26,7 @@ type PropsType = {
 const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const [theCocktail, setTheCocktail] = useState<CocktailType>({
     name: "",
     ingredients: [],
@@ -65,37 +68,44 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
     dispatch(startDeleteIngredient(Number(id), ingredient_id));
   };
 
+  const handleEditCocktail = (updates: string) => {
+    if (!theCocktail.id) return console.log("id error");
+
+    dispatch(startEditCocktail(theCocktail.id, updates));
+
+    setShowModal(false);
+  };
+
   return (
-    <div>
-      <div
-        style={{
-          textAlign: "center",
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "20px",
-        }}
-      >
-        <h2>{theCocktail.name}</h2>
-        <div
-          style={{
-            textAlign: "center",
-            display: "flex",
-            justifyContent: "space-between",
-            width: "45%",
-          }}
-        >
-          <Link to={`/edit/${theCocktail.id}`}>
+    <Fragment>
+      <div className="m-auto w-11/12">
+        <div className="relative m-auto mt-8 h-64 w-64 overflow-hidden rounded-md shadow-xl shadow-gray-300 md:h-72 md:w-72">
+          <div className="h-full w-full bg-black"></div>
+          <p className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-3xl text-white">
+            {theCocktail.name}
+          </p>
+        </div>
+        <div>
+          {/* <Link to={`/edit/${theCocktail.id}`}>
             <p>Edit</p>
-          </Link>
+          </Link> */}
+          <button onClick={() => setShowModal(true)}>Edit</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
+        <CocktailForm handleItem={handleAddIngredient} label="ingredients" />
+        <ListIngredients
+          ingredients={theCocktail.ingredients}
+          handleDelete={handleDeleteIngredient}
+        />
       </div>
-      <CocktailForm handleItem={handleAddIngredient} label="ingredients" />
-      <ListIngredients
-        ingredients={theCocktail.ingredients}
-        handleDelete={handleDeleteIngredient}
-      />
-    </div>
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+        <CocktailForm
+          label="Cocktail"
+          handleItem={handleEditCocktail}
+          cocktailToEdit={theCocktail.name}
+        />
+      </Modal>
+    </Fragment>
   );
 };
 

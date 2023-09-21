@@ -40,7 +40,7 @@ const Modal = ({ showModal, setShowModal, children }: PropsType) => {
             >
               <div className="flex justify-end">
                 <button
-                  className="rounded-md p-1 duration-300 hover:bg-stone-50"
+                  className="rounded-md p-1 duration-300 hover:bg-stone-100"
                   onClick={() => setShowModal(false)}
                 >
                   <img src={closeIcon} alt="close icon" />

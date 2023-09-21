@@ -51,7 +51,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
           <img src={sortingIcon} alt="sorting" />
         </button>
         {showOptions && (
-          <div className="absolute mt-2 w-full rounded-lg bg-white py-2 shadow-xl">
+          <div className="absolute z-20 mt-2 w-full rounded-lg bg-white py-2 shadow-xl">
             <div
               className="block cursor-pointer px-4 py-2 text-pink-500 md:text-gray-800 md:hover:bg-cyan-100 "
               id="newest"

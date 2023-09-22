@@ -33,7 +33,7 @@ const Modal = ({ showModal, setShowModal, children }: PropsType) => {
               &#8203;
             </span>
             <div
-              className="relative inline-block transform rounded-lg bg-white text-left  align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle md:max-w-md"
+              className="relative inline-block transform rounded-lg bg-white text-left  align-bottom shadow-xl transition-all  sm:align-middle"
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-headline"

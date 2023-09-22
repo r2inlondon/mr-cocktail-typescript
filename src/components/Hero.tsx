@@ -14,7 +14,6 @@ const Hero = ({ dispatch }: ConnectProps) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleAddCocktail = (userInput: string) => {
-    console.log("click");
     const newCocktail: CocktailType = {
       name: userInput,
       ingredients: [],

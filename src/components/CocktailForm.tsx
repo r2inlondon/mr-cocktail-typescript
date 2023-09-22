@@ -31,17 +31,17 @@ const CocktailForm = ({ label, handleItem, cocktailToEdit }: PropsType) => {
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit} className="mb-10 mt-3">
+      <form onSubmit={handleSubmit} className="m-auto mb-10 mt-3 px-5 ">
         <input
           autoFocus
           type="text"
-          className="m-auto block w-10/12 rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 md:mb-4"
+          className="my-4 block w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-cyan-100 focus:ring-offset-0"
           placeholder={`Enter ${label}`}
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
         />
-        <button className="m-auto block w-10/12 rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:bg-btn-color-hover ">
-          {cocktailToEdit ? "Update" : "Create"}
+        <button className="block w-full rounded-md bg-btn-color-pri px-4 py-2 text-center font-medium text-white duration-300 hover:bg-btn-color-hover ">
+          {cocktailToEdit ? "Update" : "New"}
         </button>
       </form>
     </Fragment>

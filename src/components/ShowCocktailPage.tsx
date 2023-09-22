@@ -84,7 +84,7 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
 
   return (
     <Fragment>
-      <div className="m-auto w-11/12">
+      <div className="m-auto max-w-sm">
         <div className="relative m-auto mt-8 h-64 w-64 overflow-hidden rounded-md shadow-xl shadow-gray-300 md:h-72 md:w-72">
           <div className="h-full w-full bg-black"></div>
           <button
@@ -115,9 +115,6 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
             {theCocktail.name}
           </p>
         </div>
-        {/* <div>          
-          <button onClick={handleDelete}>Delete</button>
-        </div> */}
         <CocktailForm handleItem={handleAddIngredient} label="ingredients" />
         <ListIngredients
           ingredients={theCocktail.ingredients}

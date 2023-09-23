@@ -7,7 +7,7 @@ type PropsType = {
 
 const ListCocktails = ({ cocktails }: PropsType) => {
   return (
-    <div className="m-auto flex w-11/12 flex-wrap justify-center gap-4 md:gap-12">
+    <div className="m-auto flex w-11/12 flex-wrap justify-center gap-4 pb-36 md:gap-12">
       {cocktails.map((cocktail) => (
         <Link to={`/${cocktail.id}`} key={cocktail.id}>
           <div className="relative h-36 w-36 overflow-hidden rounded-md shadow-xl shadow-gray-300 md:h-72 md:w-72">

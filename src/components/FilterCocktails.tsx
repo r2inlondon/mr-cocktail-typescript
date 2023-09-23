@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { FilterRootState } from "../state/reducers/stateTypes";
 import { FilterTypes } from "../state/reducers/filters/filterTypes";
 import sortingIcon from "../assets/sorting-icon.svg";
-import searchIcon from "../assets/search-icon.svg";
 import {
   sortByName,
   sortByNewest,
@@ -42,7 +41,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
     <div className="m-auto my-10 flex items-center justify-around lg:w-9/12 lg:justify-between">
       <div className="relative w-44">
         <button
-          className="shadowfocus:outline-none flex w-full flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 md:w-44 md:w-44"
+          className="flex w-full flex-row justify-between rounded-md border-2 border-white bg-white px-2 py-2 text-gray-700 shadow focus:outline-none md:w-44"
           name="filter-coctkails"
           value={sortBy}
           onClick={() => setShowOptions(!showOptions)}
@@ -72,7 +71,7 @@ const FilterCocktails = ({ dispatch, filterState }: ConnectProps) => {
       <h3 className="hidden text-2xl text-cyan-500 lg:block">
         Cocktails and recipes
       </h3>
-      <div className="relative h-11 w-44 overflow-hidden rounded-lg">
+      <div className="relative h-11 w-44 overflow-hidden rounded-lg shadow">
         <svg
           className="absolute left-1 top-1/2 -translate-y-1/2 transform "
           xmlns="http://www.w3.org/2000/svg"

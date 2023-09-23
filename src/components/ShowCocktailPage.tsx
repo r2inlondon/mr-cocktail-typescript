@@ -94,20 +94,20 @@ const ShowCocktailPage = ({ cocktails, dispatch }: PropsType) => {
             <img src={dotsIcon} alt="dotsIcon" />
           </button>
           {showOptions && (
-            <div className="absolute right-4 top-8 z-20 mt-2 rounded-sm bg-stone-300 py-1">
+            <div className="absolute right-4 top-8 z-20 mt-2 w-32 rounded-sm bg-white ">
               <div
-                className="block cursor-pointer px-4 py-2  md:text-gray-800 md:hover:bg-cyan-100 "
+                className="block w-full cursor-pointer px-4 py-2  md:text-gray-800 md:hover:bg-cyan-100 "
                 id="edit"
                 onClick={() => handleOptions("edit")}
               >
                 Edit
               </div>
               <div
-                className="block cursor-pointer px-4 py-2 md:text-gray-800 md:hover:bg-cyan-100 "
+                className="block w-full cursor-pointer px-4 py-2 md:text-gray-800 md:hover:bg-cyan-100 "
                 id="delete"
                 onClick={() => handleOptions("delete")}
               >
-                delete
+                Delete
               </div>
             </div>
           )}

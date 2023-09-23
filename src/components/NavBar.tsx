@@ -8,7 +8,11 @@ const NavBar = () => (
         <img src={logo} alt="Logo" className="h-10 text-white invert" />
       </li>
       <li>
-        <p className="font-dancing-script text-3xl ">Mr. Cocktail</p>
+        <Link to="/">
+          <p className="font-dancing-script text-3xl duration-300 hover:scale-125">
+            Mr. Cocktail
+          </p>
+        </Link>
       </li>
       <li>
         <Link to="/">
@@ -17,9 +21,6 @@ const NavBar = () => (
           </p>
         </Link>
       </li>
-      {/* <li>
-        <Link to="/new">New Cocktail</Link>
-      </li> */}
     </ul>
   </div>
 );
